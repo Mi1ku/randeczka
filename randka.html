@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="PL-pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaproszenie na Randkę</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-color: #ffc0cb;
+      font-family: "Raleway", serif;
+      overflow: hidden;
+    }
+
+    h1, p, button {
+      text-align: center;
+      align-items: center;
+      margin: 10px;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    .main-h1{
+      display: flex;
+      position: absolute;
+      margin-top: -4%;
+      margin-left: 38%;
+      text-align: center;
+      align-items: center;
+    }
+
+    .animation {
+      color: #ff69b4;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      margin-top: 21%;
+      animation: pulsate 3s infinite ease-in-out;
+      box-shadow: 10px 10px 700px 20px purple;
+    }
+
+    button {
+      background-color: white;
+      color: #ff69b4;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      display: flex;
+      font-size: 1.7rem;
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      align-items: center;
+      margin: 0 auto;
+      margin-top: 17%;
+    }
+
+    button:hover {
+      background-color: #ff69b4;
+      font-size: 2rem;
+      color: white;
+      transition: all .8s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 10px 0;
+    }
+
+    #cat-step1 {
+      display: flex;
+      margin-top: 2%;
+      margin-left: 44%;
+    }
+    #cat-step1:hover {
+      transform: scale(1.1);
+      transition: all .8s ease;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .kittens {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 150px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      pointer-events: none;
+    }
+
+    .kittens img {
+      max-width: 150px;
+    }
+
+    .kittens .left-kitten {
+      margin-left: 10px;
+    }
+
+    .kittens .right-kitten {
+      margin-right: 10px;
+      transform: scaleX(-1);
+    }
+
+    .form-container {
+      text-align: center;
+    }
+
+    .choices {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .choices img {
+      max-width: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .choices img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animacja napisu w step4 */
+    .animation {
+      animation: moveText 3s ease-in-out infinite, heartBeat 1.5s infinite, blurEffect 2s ease-in-out infinite;
+      font-size: 4rem;
+      color: #ff69b4;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-top: 150px;
+    }
+
+    /* Animacja przesuwania tekstu */
+    @keyframes moveText {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Animacja serduszek */
+    @keyframes heartBeat {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+      }
+    }
+
+    /* Efekt blur */
+    @keyframes blurEffect {
+      0% { filter: blur(0px); }
+      50% { filter: blur(2px); }
+      100% { filter: blur(0px); }
+    }
+
+    /* Animowane serduszka w tle */
+    .hearts {
+      position: absolute;
+      top: -50px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      animation: heartAnimation 5s infinite;
+    }
+
+    .hearts img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 2%;
+      animation: moveHearts 3s ease-in-out infinite;
+    }
+
+    @keyframes heartAnimation {
+      0% { opacity: 0; top: -10px; }
+      50% { opacity: 1; top: 50%; }
+      100% { opacity: 0; top: 100vh; }
+    }
+
+    @keyframes moveHearts {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(50px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <audio id="background-music" autoplay loop style="display:none;">
+    <source src="sex.mp3" type="audio/mpeg" /> 
+  </audio>
+
+  <div id="hearts-container" class="hearts">
+    <!-- Dodaj tutaj PNG obrazki serduszek -->
+    <img src="heart.png" style="animation-delay: 0s;">
+    <img src="heart.png" style="animation-delay: 1s;">
+    <img src="heart.png" style="animation-delay: 2s;">
+    <img src="heart.png" style="animation-delay: 3s;">
+    <img src="heart.png" style="animation-delay: 4s;">
+  </div>
+
+  <div id="step1" class="step1">
+    <h1 class="main-h1">Witam piękną Panią!!</h1>
+    <button class="main-btn" onclick="startDateSelection()">Randka?</button>
+    <img id="cat-step1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMnmPNwAWRNNAy3fqN46gsam5axAw9Ix92J_-fktlLn-9co8YNl6CteqpwqB0mGHuJnWE&usqp=CAU" alt="Kot">
+  </div>
+
+  <div id="step2" class="hidden">
+    <div class="kittens">
+      <img src="cat.png" alt="Kot z różą" class="left-kitten">
+      <img src="cat.png" alt="Kot z różą" class="right-kitten">
+    </div>
+    <div class="form-container">
+      <h1 style="margin-top: 300px;">Wybierz datę i godzinę</h1>
+      <input type="date" id="date">
+      <input type="time" id="time">
+      <button style="margin-top: 3%;" onclick="selectPlace()">Dalej</button>
+    </div>
+  </div>
+
+  <div id="step3" class="hidden">
+    <h1 style="margin-top: 280px;">Gdzie idziemy?</h1>
+    <div class="choices">
+      <img src="https://cdn.galleries.smcloud.net/t/galleries/gf-nz47-wQdL-vX51_pracownicy-mcdonalds-otrzymali-swiateczne-paczki-co-znalazlo-sie-w-srodku-internauci-troche-slabo-1920x1080-nocrop.jpg" alt="Maczek" onclick="sendInfo('Maczek')">
+      <img src="https://rynekglowny.pl/wp-content/uploads/2023/10/las-parkzielen-spacer-zdrowie.webp" alt="Spacer" onclick="sendInfo('Spacer')">
+      <img src="https://www.novekino.pl/kina/wisla/foto/salaa1.jpg" alt="Film" onclick="sendInfo('Film')">
+    </div>
+    <div class="choices">
+      <img src="https://kregielnia24.pl/kregielnia-miniaturka/294" alt="Kręgle" onclick="sendInfo('Kręgle')">
+      <img src="https://iplywamy.pl/wp-content/uploads/2018/02/zatoka-sportu-lodz-basen-olimpijski.jpg" alt="Basen" onclick="sendInfo('Basen')">
+    </div>
+  </div>
+
+  <div id="step4" class="hidden">
+    <h1 class="animation">Super, do zobaczenia kociaku💜</h1>
+  </div>
+
+  <script>
+    const webhookUrl = "https://discord.com/api/webhooks/1328819923526615131/1c6WibTUXWmlaRVhadsE2lOXcOjRZgmTdhfX9ORlKMCf0WawXL_EcNsG_SmbZgeFNH9S";
+    let selectedDate, selectedTime;
+    document.getElementById('background-music').volume = 0.2;
+
+    function startDateSelection() {
+      document.getElementById("step1").classList.add("hidden");
+      document.getElementById("step2").classList.remove("hidden");
+      document.getElementById("background-music").play();
+    }
+
+    function selectPlace() {
+      selectedDate = document.getElementById("date").value;
+      selectedTime = document.getElementById("time").value;
+
+      if (!selectedDate || !selectedTime) {
+        alert("Proszę wybrać datę i godzinę!");
+        return;
+      }
+
+      document.getElementById("step2").classList.add("hidden");
+      document.getElementById("step3").classList.remove("hidden");
+    }
+
+    function sendInfo(place) {
+      const payload = {
+        content: "Zaproszenie na randkę!",
+        embeds: [
+          {
+            title: "Randka",
+            color: 8604560,
+            fields: [
+              { name: "Data", value: selectedDate },
+              { name: "Godzina", value: selectedTime },
+              { name: "Miejsce", value: place }
+            ]
+          }
+        ]
+      };
+
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      document.getElementById("step3").classList.add("hidden");
+      document.getElementById("step4").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
